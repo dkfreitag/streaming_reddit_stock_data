@@ -1,0 +1,42 @@
+CREATE TABLE `reddit-historical-336415.reddit_historical.01streaming_comments_2` (
+	comment_id STRING NOT NULL,
+	submission_id STRING NOT NULL,
+	body STRING,
+	created_utc DATETIME NOT NULL,
+	streamed_utc DATETIME NOT NULL
+)
+PARTITION BY
+  _PARTITIONDATE
+OPTIONS(
+  require_partition_filter=false
+);
+
+CREATE TABLE `reddit-historical-336415.reddit_historical.01streaming_submissions_2` (
+	id STRING NOT NULL,
+	title STRING NOT NULL,
+	selftext STRING,
+	created_utc DATETIME NOT NULL,
+	streamed_utc DATETIME NOT NULL
+)
+PARTITION BY
+  _PARTITIONDATE
+OPTIONS(
+  require_partition_filter=false
+);
+
+CREATE TABLE `reddit-historical-336415.reddit_historical.01streaming_stock_prices_2` (
+	ticker STRING NOT NULL,
+	market_time_utc DATETIME NOT NULL,
+	open_price FLOAT64 NOT NULL,
+	high_price FLOAT64 NOT NULL,
+	low_price FLOAT64 NOT NULL,
+	close_price FLOAT64 NOT NULL,
+	adj_close FLOAT64,
+	volume INT64 NOT NULL,
+	streamed_utc DATETIME NOT NULL
+)
+PARTITION BY
+  _PARTITIONDATE
+OPTIONS(
+  require_partition_filter=false
+);

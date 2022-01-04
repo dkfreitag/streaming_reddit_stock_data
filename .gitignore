@@ -1,0 +1,5 @@
+src/__pycache__/
+reddit_proj_env/
+.DS_Store
+reddit-key.json
+.env
