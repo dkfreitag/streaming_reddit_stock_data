@@ -1,5 +1,0 @@
-python3 src/stream_comments.py --subreddit Bitcoin --project reddit-historical-336415 --dataset reddit_historical --table 01streaming_comments_2 > 
-
-python3 src/stream_submissions.py --subreddit Bitcoin --project reddit-historical-336415 --dataset reddit_historical --table 01streaming_submissions_2
-
-python3 src/stream_stock_data.py --ticker BTC-USD --project reddit-historical-336415 --dataset reddit_historical --table 01streaming_stock_prices_2
