@@ -65,7 +65,7 @@ src/stream_stock_data.py \
 
 * Reddit API key - [get one here](https://ssl.reddit.com/prefs/apps/)
 * Google Cloud account
-	* Service account with a private JSON key - [instructions] (https://cloud.google.com/docs/authentication/getting-started)
+	* Service account with a private JSON key - [instructions here](https://cloud.google.com/docs/authentication/getting-started)
 
 ### Documentation Referenced
 
