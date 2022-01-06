@@ -1,4 +1,5 @@
-CREATE TABLE `reddit-historical-336415.reddit_historical.01streaming_comments_2` (
+-- Create table to store reddit comments
+CREATE TABLE `project_name.dataset_name.table_name` (
 	comment_id STRING NOT NULL,
 	submission_id STRING NOT NULL,
 	body STRING,
@@ -11,7 +12,9 @@ OPTIONS(
   require_partition_filter=false
 );
 
-CREATE TABLE `reddit-historical-336415.reddit_historical.01streaming_submissions_2` (
+
+-- Create table to store reddit submissions
+CREATE TABLE `project_name.dataset_name.table_name` (
 	id STRING NOT NULL,
 	title STRING NOT NULL,
 	selftext STRING,
@@ -24,7 +27,9 @@ OPTIONS(
   require_partition_filter=false
 );
 
-CREATE TABLE `reddit-historical-336415.reddit_historical.01streaming_stock_prices_2` (
+
+-- Create table to store stock price data
+CREATE TABLE `project_name.dataset_name.table_name` (
 	ticker STRING NOT NULL,
 	market_time_utc DATETIME NOT NULL,
 	open_price FLOAT64 NOT NULL,
