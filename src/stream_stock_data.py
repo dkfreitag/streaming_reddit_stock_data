@@ -185,11 +185,18 @@ def append_rows_committed(project_id: str, dataset_id: str, table_id: str, ticke
     print("There must have been an error for us to end up here though...")
 
 def main():
-    # parse arguments
-    ticker_name, project_name, dataset_name, table_name, m_hours, data_frequency = parse_arguments()
-    
-    # start the stream
-    append_rows_committed(project_id=project_name, dataset_id=dataset_name, table_id=table_name, ticker=ticker_name, market_hours_only=m_hours, seconds_to_wait=data_frequency)
+    try:
+        # parse arguments
+        ticker_name, project_name, dataset_name, table_name, m_hours, data_frequency = parse_arguments()
+        
+        # start the stream
+        append_rows_committed(project_id=project_name, dataset_id=dataset_name, table_id=table_name, ticker=ticker_name, market_hours_only=m_hours, seconds_to_wait=data_frequency)
+
+    # if an exception occurs when executing the above code, try again
+    except Exception as e:
+        print("Exception occurred:", e)
+        print("Restarting.")
+        main()
     
 if __name__ == '__main__':
     main()

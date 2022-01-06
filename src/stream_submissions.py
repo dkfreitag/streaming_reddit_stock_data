@@ -116,14 +116,21 @@ def append_rows_committed(project_id: str, dataset_id: str, table_id: str, reddi
     print("There must have been an error for us to end up here though...")
 
 def main():
-    # parse arguments
-    subreddit_name, project_name, dataset_name, table_name = parse_arguments()
-    
-    # create reddit connection
-    r_obj = create_reddit_conn(client_id=CLIENT_ID, client_secret=CLIENT_SECRET)
-    
-    # start the stream
-    append_rows_committed(project_id=project_name, dataset_id=dataset_name, table_id=table_name, reddit_obj=r_obj, subreddit_name=subreddit_name)
+    try:
+        # parse arguments
+        subreddit_name, project_name, dataset_name, table_name = parse_arguments()
+        
+        # create reddit connection
+        r_obj = create_reddit_conn(client_id=CLIENT_ID, client_secret=CLIENT_SECRET)
+        
+        # start the stream
+        append_rows_committed(project_id=project_name, dataset_id=dataset_name, table_id=table_name, reddit_obj=r_obj, subreddit_name=subreddit_name)
+        
+    # if an exception occurs when executing the above code, try again
+    except Exception as e:
+        print("Exception occurred:", e)
+        print("Restarting.")
+        main()
     
 if __name__ == '__main__':
     main()

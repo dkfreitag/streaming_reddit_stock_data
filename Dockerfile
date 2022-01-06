@@ -6,4 +6,4 @@ COPY . .
 
 RUN pip install -r requirements.txt
 
-ENTRYPOINT ["/bin/bash", "./sh/stream_all.sh"]
+ENTRYPOINT ["python"]
