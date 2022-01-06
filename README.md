@@ -53,12 +53,6 @@ src/stream_stock_data.py \
 --table table_name
 ```
 
-### Scripts in `src/` that can be run:
-
-* `stream_comments.py`
-* `stream_submissions.py`
-* `stream_stock_data.py`
-
 ### Optional arguments for `stream_stock_data.py`
 
 `--market_hours_only` If this flag is given, data is only streamed during market hours.
