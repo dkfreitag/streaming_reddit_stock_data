@@ -2,6 +2,7 @@ import os
 import argparse
 import time
 import datetime as dt
+import gc
 
 import pytz
 import pandas as pd
@@ -137,6 +138,10 @@ def append_rows_committed(project_id: str, dataset_id: str, table_id: str, ticke
 	
 	            print(response_future_1.result())
 	            
+	            # delete the data dataframe or this will grow in memory every iteration
+	            del(data)
+	            gc.collect()
+	            
 	        else:
 	            # markets are closed
 	            pass
@@ -172,6 +177,10 @@ def append_rows_committed(project_id: str, dataset_id: str, table_id: str, ticke
             response_future_1 = append_rows_stream.send(request)
 
             print(response_future_1.result())
+            
+            # delete the data dataframe or this will grow in memory every iteration
+            del(data)
+            gc.collect()
             
             # sleep for a specified number of seconds before retrieving data again
             time.sleep(seconds_to_wait)
